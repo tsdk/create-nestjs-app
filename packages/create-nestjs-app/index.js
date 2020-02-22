@@ -77,12 +77,19 @@ function create(name, options) {
   exec(cmd, (error, stdout, stderr) => {
     if (error) {
       if (options.debug) throw error;
+      if (stderr) {
+        console.error(`stderr: ${stderr}`);
+        return;
+      }
     }
-    if (stderr) {
-      console.error(`stderr: ${stderr}`);
-      return;
+
+    if (stdout) {
+      console.log(
+        `\n${chalk.green(`${name} created!`)}\ncd ${name} && npm install\n`
+      );
+    } else {
+      console.log(`\n${chalk.red('network error!')}\nPlease retry later\n`);
     }
-    console.log(`stdout: ${stdout}`);
   });
 }
 create(projectName, program);
