@@ -1,6 +1,6 @@
 {
   "name": "nest-myapp-template",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "nestjs app template",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -57,7 +57,9 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
-  "files": [".gitignore"],
+  "files": [
+    ".gitignore"
+  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
