@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 const commander = require('commander');
 const chalk = require('chalk');
@@ -75,18 +76,19 @@ checkAppName(projectName);
 
 function updateAppName(name, cb) {
   const file = path.join(name, 'package.json');
-  fs.readFile(file, 'utf8', function(err, data) {
+  fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
       return console.error(`\nstderr: ${err}\n`);
     }
     const result = data
-      .replace(/\"name\":\s\".+\"/g, `"name": "${name}"`)
-      .replace(/\"version\":\s\".+\"/g, `"version": "0.0.1"`);
+      .replace(/"name":\s".*"/g, `"name": "${name}"`)
+      .replace(/"version":\s".*"/g, `"version": "0.0.1"`);
 
-    fs.writeFile(file, result, 'utf8', function(err) {
-      if (err) return console.error(`\nstderr: ${err}\n`);
-      cb();
+    fs.writeFile(file, result, 'utf8', stderr => {
+      if (stderr) return console.error(`\nstderr: ${stderr}\n`);
+      return cb();
     });
+    return true;
   });
 }
 
