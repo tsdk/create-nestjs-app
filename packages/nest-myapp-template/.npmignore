@@ -1,0 +1,22 @@
+# compiled output
+node_modules
+.env
+!*.d.ts
+package-lock.json
+yarn.lock
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+CVS/
+.git/
+.svn/
+.idea/
+.DS_Store
+._*
+_*/
+.*.swp
+*~
