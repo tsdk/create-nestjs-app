@@ -1,0 +1,33 @@
+{
+  "name": "create-nestjs-app",
+  "version": "0.0.1",
+  "description": "Create a new project based on a npm repo.",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^4.1.1",
+    "inquirer": "^7.0.4",
+    "nest-myapp-template": "^0.0.1"
+  },
+  "bin": {
+    "create-nestjs-app": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tsdk/create-nestjs-app.git",
+    "directory": "packages/create-nestjs-app"
+  },
+  "keywords": [
+    "create",
+    "project",
+    "scaffold",
+    "template",
+    "templating"
+  ],
+  "author": "zaczheng <tsdk@foxmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com//tsdk/create-nestjs-app/issues"
+  },
+  "homepage": "https://github.com//tsdk/create-nestjs-app"
+}

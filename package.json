@@ -1,0 +1,25 @@
+{
+  "name": "create-nestjs-app",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "create-nestjs-app": "cd packages/create-nestjs-app && node index.js"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "lerna": "^3.20.2"
+  },
+  "version": "1.0.0",
+  "repository": "https://github.com/tsdk/create-nestjs-app.git",
+  "author": "<tsdk@foxmail.com>",
+  "license": "MIT"
+}
