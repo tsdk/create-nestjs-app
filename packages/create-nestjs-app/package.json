@@ -7,7 +7,7 @@
     "chalk": "^3.0.0",
     "commander": "^4.1.1",
     "inquirer": "^7.0.4",
-    "nest-myapp-template": "^0.0.1"
+    "validate-npm-package-name": "^3.0.0"
   },
   "bin": {
     "create-nestjs-app": "./index.js"
@@ -27,7 +27,7 @@
   "author": "zaczheng <tsdk@foxmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com//tsdk/create-nestjs-app/issues"
+    "url": "https://github.com/tsdk/create-nestjs-app/issues"
   },
-  "homepage": "https://github.com//tsdk/create-nestjs-app"
+  "homepage": "https://github.com/tsdk/create-nestjs-app"
 }

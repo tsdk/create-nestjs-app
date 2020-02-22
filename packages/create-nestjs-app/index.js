@@ -3,6 +3,7 @@
 const commander = require('commander');
 const chalk = require('chalk');
 const { exec } = require('child_process');
+const validateProjectName = require('validate-npm-package-name');
 const cfg = require('./package.json');
 
 let projectName;
@@ -45,6 +46,30 @@ if (typeof projectName === 'undefined') {
   console.log();
   process.exit(1);
 }
+
+function checkAppName(appName) {
+  const validationResult = validateProjectName(appName);
+  if (!validationResult.validForNewPackages) {
+    console.log();
+    console.error(
+      chalk.red(
+        `Cannot create a project named ${chalk.green(
+          `"${appName}"`
+        )} because of npm naming restrictions:\n`
+      )
+    );
+    [
+      ...(validationResult.errors || []),
+      ...(validationResult.warnings || []),
+    ].forEach(error => {
+      console.error(chalk.red(`  * ${error}`));
+    });
+    console.error(chalk.red('\nPlease choose a different project name.'));
+    console.log();
+    process.exit(1);
+  }
+}
+checkAppName(projectName);
 
 function create(name, options) {
   const template = `${options.template}-template`;
