@@ -2,8 +2,7 @@
 node_modules
 .env
 !*.d.ts
-package-lock.json
-yarn.lock
+!.gitignore
 
 # IDE - VSCode
 .vscode/*
