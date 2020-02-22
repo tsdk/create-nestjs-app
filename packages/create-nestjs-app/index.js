@@ -2,8 +2,10 @@
 
 const commander = require('commander');
 const chalk = require('chalk');
-const { exec } = require('child_process');
 const validateProjectName = require('validate-npm-package-name');
+const { exec } = require('child_process');
+const fs = require('fs');
+const path = require('path');
 const cfg = require('./package.json');
 
 let projectName;
@@ -71,6 +73,23 @@ function checkAppName(appName) {
 }
 checkAppName(projectName);
 
+function updateAppName(name, cb) {
+  const file = path.join(name, 'package.json');
+  fs.readFile(file, 'utf8', function(err, data) {
+    if (err) {
+      return console.error(`\nstderr: ${err}\n`);
+    }
+    const result = data
+      .replace(/\"name\":\s\".+\"/g, `"name": "${name}"`)
+      .replace(/\"version\":\s\".+\"/g, `"version": "0.0.1"`);
+
+    fs.writeFile(file, result, 'utf8', function(err) {
+      if (err) return console.error(`\nstderr: ${err}\n`);
+      cb();
+    });
+  });
+}
+
 function create(name, options) {
   const template = `${options.template}-template`;
   const cmd = `npm pack ${template} &&  tar -zxf *.tgz && mv package ${name} && rm -rf *.tgz`;
@@ -84,9 +103,11 @@ function create(name, options) {
     }
 
     if (stdout) {
-      console.log(
-        `\n${chalk.green(`${name} created!`)}\ncd ${name} && npm install\n`
-      );
+      updateAppName(name, () => {
+        console.log(
+          `\n${chalk.green(`${name} created!`)}\ncd ${name} && npm install\n`
+        );
+      });
     } else {
       console.log(`\n${chalk.red('network error!')}\nPlease retry later\n`);
     }

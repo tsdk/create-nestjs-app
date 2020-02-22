@@ -20,6 +20,6 @@
   },
   "version": "1.0.0",
   "repository": "https://github.com/tsdk/create-nestjs-app.git",
-  "author": "<tsdk@foxmail.com>",
+  "author": "zaczheng <st_zzh@sina.com>",
   "license": "MIT"
 }

@@ -1,7 +1,7 @@
 {
   "name": "nest-myapp-template",
   "version": "0.0.7",
-  "description": "nestjs app template",
+  "description": "nestjs application",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -66,11 +66,8 @@
     "directory": "packages/nest-myapp-template"
   },
   "keywords": [
-    "create",
-    "project",
-    "scaffold",
-    "template",
-    "templating"
+    "nestjs",
+    "typescript"
   ],
   "author": "zaczheng <st_zzh@sina.com>",
   "license": "MIT",
