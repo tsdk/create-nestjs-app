@@ -57,6 +57,7 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   },
+  "files": [".gitignore"]
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
